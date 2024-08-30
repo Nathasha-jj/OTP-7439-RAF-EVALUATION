@@ -12,13 +12,13 @@
  *
  * Date Created : 30-August-2024
  *
- * Description :This script is used to close the sales orders created 
+ * Description :This script is used to close the sales orders created
  * on or before thirty days and are in pending fulfillment status,
  * and to generate and send CSV file for recording the details of these sales orders.
- * 
+ *
  * REVISION HISTORY
  *
- * @version 1.0 OTP-7439 : 30-August-2024 
+ * @version 1.0 OTP-7439 : 30-August-2024
  */
 define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime','N/task'],
     /**
@@ -28,16 +28,16 @@ define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime','N/task'],
  * @param{search} search
  * @param{runtime} runtime
  */
-    (email, file, record, search, runtime) => 
+    (email, file, record, search, runtime) =>
     {
-
+ 
         /**
          * Defines the Scheduled script trigger point.
          * @param {Object} scriptContext
          * @param {string} scriptContext.type - Script execution context. Use values from the scriptContext.InvocationType enum.
          * @since 2015.2
          */
-        const execute = (scriptContext) => 
+        const execute = (scriptContext) =>
         {
             let scriptObj = runtime.getCurrentScript();
             let unitsRemaining = scriptObj.getRemainingUsage();
@@ -109,7 +109,7 @@ define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime','N/task'],
                     // log.debug("CSV File Id", csvFileId);
                     // let soClosedCsvFile = file.load(
                     // {
-                    //     id: csvFileId 
+                    //     id: csvFileId
                     // });
                     log.debug("Is So Closed", isSoClosed);
                     let recipientEmail = "nathasha.vangana@jobinandjismi.com";
@@ -133,8 +133,8 @@ define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime','N/task'],
             // let scriptObj = runtime.getCurrentScript();
             // let unitsRemaining = scriptObj.getRemainingUsage();
             // log.debug("Usage Limit", unitsRemaining);
-        }   
-    }     
+            }  
+        }    
         function filesave(fileName, csvContent)
         {
             let csvFile = file.create(
@@ -148,7 +148,7 @@ define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime','N/task'],
             log.debug("CSV File Id", csvFileId);
             let soClosedCsvFile = file.load(
             {
-                id: csvFileId 
+                id: csvFileId
             });
             return soClosedCsvFile;
         }
@@ -178,7 +178,7 @@ define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime','N/task'],
         {
             let csvContent;
             let soId = searchResult.getValue('internalid');
-            log.debug("SO Id", soId);   
+            log.debug("SO Id", soId);  
             let customerName = searchResult.getText('entity');
             log.debug("Customer Name", customerName);
             let documentNumber = searchResult.getValue('tranid');
@@ -189,5 +189,4 @@ define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime','N/task'],
             return csvContent;
         }
         return {execute}
-
     });
