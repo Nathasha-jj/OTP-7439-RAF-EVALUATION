@@ -26,6 +26,7 @@ define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime'],
  * @param{file} file
  * @param{record} record
  * @param{search} search
+ * @param{runtime} runtime
  */
     (email, file, record, search, runtime) => 
     {
@@ -109,7 +110,7 @@ define(['N/email', 'N/file', 'N/record', 'N/search','N/runtime'],
                     email.send(
                     {
                         author: -5,
-                        recipients: recipientEmail,
+                        recipients: 1659,
                         subject: "Closed Sales Orders List "+ todaysDate,
                         body: "The sales orders which are created on or before thirty days are closed and the details are provided in the attachemnt",
                         attachments: [soClosedCsvFile]
