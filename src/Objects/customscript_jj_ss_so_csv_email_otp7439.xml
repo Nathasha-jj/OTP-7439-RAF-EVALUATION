@@ -1,0 +1,24 @@
+<scheduledscript scriptid="customscript_jj_ss_so_csv_email_otp7439">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>JJ SS SO Close Email CSV OTP-7439</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/JobinandJismi/OTP-7439-RAF/jj_ss_so_close_email_csv.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_jj_ss_so_csv_email_otp7439">
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>JJ SS SO Close Email CSV OTP-7439</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2024-08-30</startdate>
+          <starttime>01:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</scheduledscript>
